@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     name: Build APK and Create release
-    needs: [ version ]
+    
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -26,19 +26,19 @@ jobs:
       with:
          java-version: '12.x'
     - uses: subosito/flutter-action@v1
-     with:
+      with:
         flutter-version: '1.17.0'
-      - name: Get version.txt
-        uses: actions/download-artifact@v2
-        with:
+    - name: Get version.txt
+      uses: actions/download-artifact@v2
+      with:
           name: gitversion
-      - name: Read version
-        id: version
-        uses: juliangruber/read-file-action@v1
-        with:
+    - name: Read version
+      id: version
+      uses: juliangruber/read-file-action@v1
+      with:
           path: version.txt
-      - run: flutter pub get
-      - run: flutter test
-      - run: flutter build apk --release --split-per-abi
+    - run: flutter pub get
+    - run: flutter test
+    - run: flutter build apk --release --split-per-abi
 
 

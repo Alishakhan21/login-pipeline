@@ -4,7 +4,7 @@ import 'package:sampleproject/validation.dart';
 void main() {
   test("TC-01: empty email returns error string ", () {
     var result = Validations.emailValidate("");
-    expect(result, "Email can\'t be empty");
+    expect(result, "Email can't be empty");
   });
 
   test("TC-02: Verify Email id check\n ", () {
@@ -20,7 +20,7 @@ void main() {
 
   test('TC-04: Empty password returns error string', () {
     var result = Validations.passValidate('');
-    expect(result, 'Password can\'t be empty');
+    expect(result, "Password can't be empty");
   });
 
   test('TC-05: Password maximum Length 6', () {

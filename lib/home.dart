@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return GridView(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
       crossAxisSpacing: 10),
       children: [

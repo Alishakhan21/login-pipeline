@@ -5,6 +5,9 @@ import 'package:sampleproject/validation.dart';
 
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
+
   @override
   State<StatefulWidget> createState() => _LoginPageState();
 }
@@ -17,8 +20,8 @@ enum FormType {
 class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  late String _email;
-  late String _password;
+  late String email;
+  late String password;
   FormType _formType = FormType.login;
   bool _obscureText = true;
   bool validateAndSave() {
@@ -35,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.push (
         context,
         MaterialPageRoute (
-          builder: (BuildContext context) =>  const Home(),
+          builder: (BuildContext context) =>  Home(),
         ),
       );
     }
@@ -83,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
         key: const Key('email'),
         decoration: const InputDecoration(labelText: 'Email'),
         validator: (val) => Validations.emailValidate(val!),
-        onSaved: (value) => _email = value!,
+        onSaved: (value) => email = value!,
       ),
       TextFormField(
         key: const Key('password'),
@@ -103,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
         obscureText: _obscureText,
         maxLength: 6,
         validator: (val) => Validations.passValidate(val!),
-        onSaved: (value) => _password = value!,
+        onSaved: (value) => password = value!,
       ),
     ];
   }

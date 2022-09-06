@@ -1,27 +1,22 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sampleproject/login.dart';
 import 'package:sampleproject/validation.dart';
 
 void main() {
-
   test("TC-01: empty email returns error string ", () {
     var result = Validations.emailValidate("");
     expect(result, "Email can\'t be empty");
   });
 
-
-  test("TC-02: Verify Email id check\n ", ()  {
+  test("TC-02: Verify Email id check\n ", () {
     var result = Validations.emailValidate("abc@gmail.com");
     expect(result, null);
   });
-
 
   test('TC-03: Verify invalid Email address', () {
     String emailId = 'abc@gmail';
     var result = Validations.emailValidate(emailId);
     expect(result, 'Enter valid email');
   });
-
 
   test('TC-04: Empty password returns error string', () {
     var result = Validations.passValidate('');
